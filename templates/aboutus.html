@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <style>
+        body {
+            padding-top: 60px; /* Adjust the top padding for fixed navbar */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .jumbotron {
+            background-color: #f8f9fa;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .slide-up {
+            animation: slideUp 1s;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h2 class="display-4 slide-up">About Us</h2>
+        <p class="lead slide-up">
+            Welcome to our School Activities website! We are passionate about providing students with opportunities to explore their interests and talents through a variety of extracurricular activities.
+        </p>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 slide-up">
+            <h3>Our Mission</h3>
+            <p>
+                Our mission is to foster a dynamic and inclusive community where students can discover and develop their skills, collaborate with peers, and create lasting memories. We believe that engagement in extracurricular activities contributes significantly to a well-rounded education.
+            </p>
+        </div>
+        <div class="col-lg-4 slide-up">
+            <img src="https://images.collegedunia.com/public/college_data/images/studyabroad/appImage/college_1090_29-15:00_o-HARVARD-UNIVERSITY-BUILDING-facebook.jpeg" alt="School Image" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+
+<footer class="bg-light text-center p-3 mt-4">
+    &copy; 2024 School Activities
+</footer>
+
+{% endblock %}

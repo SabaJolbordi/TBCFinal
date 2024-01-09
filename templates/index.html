@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{current_user.username}}
+<!--    <p class="d-inline-flex gap-1">-->
+<!--        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">-->
+<!--            Link with href-->
+<!--        </a>-->
+<!--        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">-->
+<!--            Button with data-bs-target-->
+<!--        </button>-->
+<!--    </p>-->
+<!--    <div class="collapse" id="collapseExample">-->
+<!--        <div class="card card-body">-->
+<!--            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Like/Dislike Buttons</title>-->
+<!--</head>-->
+<!--<body>-->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like/Dislike Buttons</title>
+
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+            height: 100vh;
+            margin: 0;
+        }
+
+        #buttons-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            cursor: pointer;
+            background: none;
+            border: none;
+            margin: 10px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        #likeButton:hover {
+            background-color: #6fd178; /* Green */
+        }
+
+        #dislikeButton:hover {
+            background-color: #ff6961; /* Red */
+        }
+
+        p {
+            color: #777;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <style>
+        body {
+            padding-top: 60px; /* Adjust the top padding for fixed navbar */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .jumbotron {
+            background-color: #f8f9fa;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .slide-up {
+            animation: slideUp 1s;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h2 class="display-4 slide-up">School Activities</h2>
+        <p class="lead slide-up">
+            Welcome to our School Activities website! We are passionate about providing students with opportunities to explore their interests and talents through a variety of extracurricular activities.
+        </p>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 slide-up">
+            <h3>Our Mission</h3>
+            <p>
+                Our mission is to foster a dynamic and inclusive community where students can discover and develop their skills, collaborate with peers, and create lasting memories. We believe that engagement in extracurricular activities contributes significantly to a well-rounded education.
+            </p>
+        </div>
+        <div class="col-lg-4 slide-up">
+            <img src="https://images.collegedunia.com/public/college_data/images/studyabroad/appImage/college_1090_29-15:00_o-HARVARD-UNIVERSITY-BUILDING-facebook.jpeg" alt="School Image" class="img-fluid rounded" style="width: 500px">
+        </div>
+    </div>
+</div>
+
+<footer class="bg-light text-center p-3 mt-4">
+    &copy; 2024 School Activities
+</footer>
+<div id="buttons-container">
+    <button id="likeButton" onclick="like()"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_HejEeDxF_JIA165EMlxNmab9JhH0Rcj4gBs4J5uhsQCexjJarvwh7FYk4dNj5E_pFc8&usqp=CAU" alt="Like"></button>
+    <button id="dislikeButton" onclick="dislike()"><img src="https://image.similarpng.com/very-thumbnail/2020/08/Dislike-icon-on-transparent-PNG.png" alt="Dislike"></button>
+    <p id="likeCount">0 Likes</p>
+    <p id="dislikeCount">0 Dislikes</p>
+</div>
+
+<script>
+    let likeCount = 0;
+    let dislikeCount = 0;
+
+    function like() {
+        likeCount++;
+        updateCounts();
+    }
+
+    function dislike() {
+        dislikeCount++;
+        updateCounts();
+    }
+
+    function updateCounts() {
+        updateLikeCount();
+        updateDislikeCount();
+    }
+
+    function updateLikeCount() {
+        const likeCountElement = document.getElementById('likeCount');
+        likeCountElement.innerText = `${likeCount} ${likeCount === 1 ? 'Like' : 'Likes'}`;
+    }
+
+    function updateDislikeCount() {
+        const dislikeCountElement = document.getElementById('dislikeCount');
+        dislikeCountElement.innerText = `${dislikeCount} ${dislikeCount === 1 ? 'Dislike' : 'Dislikes'}`;
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}

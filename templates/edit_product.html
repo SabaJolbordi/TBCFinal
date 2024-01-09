@@ -1,0 +1,26 @@
+
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container text-center">
+    <h2>Edit Product</h2>
+    {% for field, errors in form.errors.items() %}
+        {% for error in errors %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <form method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.maintitle(class="form-control mt-2", placeholder=form.maintitle.label.text) }}
+        {{ form.img(class="form-control mt-2", placeholder=form.img.label.text, accept=".jpg,.jpeg,.png") }}
+        {{ form.card_title(class="form-control mt-2", placeholder=form.card_title.label.text) }}
+        {{ form.time(class="form-control mt-2", placeholder=form.time.label.text) }}
+        <img src="{{ url_for('static', filename=product.img) }}" alt="Current Image" style="width: 500px; height: 333.33px;">
+        {{ form.submit(class="btn btn-primary mt-2") }}
+    </form>
+</div>
+{% endblock %}
+
+
